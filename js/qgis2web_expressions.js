@@ -757,33 +757,33 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_label__1_eval_expression(context) {
-    // PV_TH || '\n' || "อัตราส่วน"
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return ((feature.properties['PV_TH']  + '\n') + feature.properties['อัตราส่วน'] );
-    } else {
-        return ((feature['PV_TH']  + '\n') + feature['อัตราส่วน'] );
-    }
-}
-
-
-function exp_label__2_eval_expression(context) {
-    // PV_TH || '\n' || "อัตราส่วน"
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return ((feature.properties['PV_TH']  + '\n') + feature.properties['อัตราส่วน'] );
-    } else {
-        return ((feature['PV_TH']  + '\n') + feature['อัตราส่วน'] );
-    }
-}
-
-
 function exp_label__3_eval_expression(context) {
+    // PV_TH || '\n' || "อัตราส่วน"
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['PV_TH']  + '\n') + feature.properties['อัตราส่วน'] );
+    } else {
+        return ((feature['PV_TH']  + '\n') + feature['อัตราส่วน'] );
+    }
+}
+
+
+function exp_label__4_eval_expression(context) {
+    // PV_TH || '\n' || "อัตราส่วน"
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['PV_TH']  + '\n') + feature.properties['อัตราส่วน'] );
+    } else {
+        return ((feature['PV_TH']  + '\n') + feature['อัตราส่วน'] );
+    }
+}
+
+
+function exp_label__5_eval_expression(context) {
     // PV_TH || '\n' || "อัตราส่วน"
 
     var feature = context.feature;
