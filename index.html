@@ -51,7 +51,17 @@
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
-            highlightLayer.openPopup();
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -88,12 +98,8 @@
         function pop__1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
                     }
                 },
                 mouseover: highlightFeature,
@@ -250,12 +256,8 @@
         function pop__2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
                     }
                 },
                 mouseover: highlightFeature,
@@ -412,12 +414,8 @@
         function pop__3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
                     }
                 },
                 mouseover: highlightFeature,
@@ -575,12 +573,8 @@
         function pop__4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
                     }
                 },
                 mouseover: highlightFeature,
@@ -1037,7 +1031,7 @@
             sel_PV_TH.innerHTML = PV_TH_options_str;
             div_PV_TH.appendChild(sel_PV_TH);
             var lab_PV_TH = document.createElement('div');
-            lab_PV_TH.innerHTML = 'PV_TH';
+            lab_PV_TH.innerHTML = 'ฐานข้อมูลทางการศึกษา';
             lab_PV_TH.className = 'filterlabel';
             div_PV_TH.appendChild(lab_PV_TH);
             var reset_PV_TH = document.createElement('div');
